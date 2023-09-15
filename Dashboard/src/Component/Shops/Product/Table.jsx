@@ -110,7 +110,7 @@ export default function TableSort() {
     //Get all Data 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/shop/motorcycles/', {
+            const response = await axios.get('http://localhost:9000/api/products', {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },
@@ -140,16 +140,12 @@ export default function TableSort() {
 
     const rows = records.map((row) => (
         <tr key={row._id}>
-            <td>{row.user && row.user.username ? row.user.username : 'Admin'}</td>
-            <td>{row.phone}</td>
-            <td><img src={row.image.url} alt='image car rental' width='70' height='70' /></td>
-            <td>{row.nameProduct}</td>
-            <td>{row.location}</td>
-            <td>{row.kilometres}</td>
-            <td>{row.description}</td>
+            <td>{row.brand}</td>
+            <td>{row.name}</td>
             <td>{row.price}</td>
-            <td>{row.transmissionType}</td>
-            <td>{row.fuelType}</td>
+            <td><img src={row.image.url} alt='image car rental' width='70' height='70' /></td>
+            <td>{row.description}</td>
+            <td>{row.richDescription}</td>
             <td>
                 <button type="button" className="btn btn-danger" onClick={() => setDeleteId(row._id)} data-bs-toggle="modal" data-bs-target="#delete">
                     <i className="fa-solid fa-trash"></i>
@@ -171,7 +167,7 @@ export default function TableSort() {
                     value={search}
                     onChange={handleSearchChange}
                 />
-                <Table horizontalSpacing="md" verticalSpacing="xs" w={1500} sx={{ tableLayout: 'scroll' }}>
+                <Table horizontalSpacing="md" verticalSpacing="xs" w={1300} sx={{ tableLayout: 'scroll' }}>
                     <thead>
                         <tr>
                             <th>
@@ -179,7 +175,11 @@ export default function TableSort() {
                             </th>
 
                             <th>
-                                Phone
+                                brand
+                            </th>
+
+                            <th>
+                                price
                             </th>
 
                             <th>
@@ -187,32 +187,16 @@ export default function TableSort() {
                             </th>
 
                             <th>
-                                Name Product
+                                summary
                             </th>
 
-                            <th>
-                                Location
-                            </th>
-
-                            <th>
-                                kilometres
-                            </th>
+                           
 
                             <th>
                                 Description
                             </th>
 
-                            <th>
-                                Price
-                            </th>
-
-                            <th>
-                                Transmission Type
-                            </th>
-
-                            <th>
-                                Fuel Type
-                            </th>
+                         
 
                             <th>
                                 Procedures

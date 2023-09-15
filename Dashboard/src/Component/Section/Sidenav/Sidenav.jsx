@@ -64,9 +64,8 @@ function Sidenav() {
                             data-bs-parent="#sidenavAccordion">
                             <nav className="sb-sidenav-menu-nested nav">
 
-                                <Link to='/Cars' className="nav-link">Cars</Link>
-                                <Link to='/Motorcycles' className="nav-link">Motorcycles</Link>
-                                <Link to='/Buses' className="nav-link">Buses</Link>
+                                <Link to='/Product' className="nav-link">Product</Link>
+                                <Link to='/Category' className="nav-link">Category</Link>
                               
                           
 

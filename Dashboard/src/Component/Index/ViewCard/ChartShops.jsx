@@ -21,7 +21,7 @@ export default function ChartShops({ adminInfo }) {
     }
 
     const createChart = (chartData) => {
-        const labels = ["Electronics", "Beauty", "Computers", "Home", "Garden", "Games"];
+        const labels = ["Electronics",   "Home", "Garden", "Games"];
     console.log(chartData)
         const config = {
             type: 'bar',

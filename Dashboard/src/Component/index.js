@@ -6,10 +6,6 @@ import { default as Sidenav } from './Section/Sidenav/Sidenav'
 ///////// ViewCard 
 import { default as ViewCard } from './Index/ViewCard/ViewCard'
 
-
-///////// Service Providers
-
-
 ///////// Create Account
 import { default as CreateAccount } from './CreateAccount/CreateAccount'
 import { default as ResetPassword } from './Password/ResetPassword'
@@ -32,29 +28,9 @@ import { default as Page401 } from './PageError/Page401'
 import { default as Page404 } from './PageError/Page404'
 import { default as Page500 } from './PageError/Page500'
 
-
-///////// Scrap
-
-
-
-
-
-///////// Agencies
-
-
-///////// Services
-
-
-
 ///////// Shops
-import { default as Cars } from './Shops/Cars/Cars'
-import { default as Motorcycles } from './Shops/Motorcycles/Motorcycles'
-import { default as Buses } from './Shops/Buses/Buses'
-
-
-
-
-
+import { default as Product } from './Shops/Product/Product'
+import { default as Category } from './Shops/Category/Category'
 export {
     Nav,
     Sidenav,
@@ -71,8 +47,6 @@ export {
     Page404,
     Page500,
     Page401,
-
-    Cars,
-    Motorcycles,
-    Buses,    
+    Product,
+    Category,
 }

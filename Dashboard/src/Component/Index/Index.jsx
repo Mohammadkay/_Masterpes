@@ -3,13 +3,10 @@ import { Routes, Route } from "react-router-dom";
 
 import {
     Nav,
-    Footer,
     Sidenav,
     ViewCard,
-    ServiceProviders,
     CreateAccount,
     ResetPassword,
-    TableSort,
     TableUsers,
     TableAdmin,
     Login,
@@ -19,30 +16,10 @@ import {
     Page404,
     Page500,
     Page401,
-    SellBuy,
-    ScrapAuction,
-    ListingRequest,
-    External,
-    Internal,
-    Import,
-    MaintenanceAssistance,
-    Accidents,
-    BeforeBuying,
-    Maintenance,
-    OnTheRoad,
-    Pieces,
-    Rental,
-    SellAndBuy,
-    Advertisements,
-    Settings,
     Cars,
     Motorcycles,
-    Buses,
-    Trucks,
-    Machines,
-    SpareParts,
-    Scrap,
-
+    Product,
+    Category,
 } from '../index'
 import AuthLogin from '../Auth'
 import { AdminInfoContext } from '../../context/AdminInfoProvider'
@@ -106,8 +83,8 @@ function Index() {
 
                                  
                                     {/* Shops  */}
-                                    <Route path='/Cars' element={<Cars />} />
-                                    <Route path='/Motorcycles' element={<Motorcycles />} />
+                                    <Route path='/Product' element={<Product />} />
+                                    <Route path='/Category' element={<Category />} />
                               
 
                                     {/* Settings  */}

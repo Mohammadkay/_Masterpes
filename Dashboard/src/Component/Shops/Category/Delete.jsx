@@ -1,11 +1,11 @@
 import axios from "axios"
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 function Delete({ deleteId, adminInfo, fetchData }) {
 
     const deleteAdmin = async () => {
         try {
-            const response = await axios.delete(`http://localhost:9000/api/development/${deleteId}`, {
+            const response = await axios.delete(`http://localhost:9000/api/categories/${deleteId}`, {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },
@@ -20,7 +20,7 @@ function Delete({ deleteId, adminInfo, fetchData }) {
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
-                progress: 1,
+                progress: undefined,
                 theme: "colored",
             })
 
@@ -48,7 +48,7 @@ function Delete({ deleteId, adminInfo, fetchData }) {
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Delete Development </h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Delete Post</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
                         </div>
                         <div className="modal-body">
