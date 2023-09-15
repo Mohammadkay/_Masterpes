@@ -31,7 +31,7 @@ router.delete('/:id', deleteProduct);
 
 router.get(`/get/count`, countProducts);
 
-router.get(`/get/featured/:count`, countFeaturedProduct);
+
 
 
 

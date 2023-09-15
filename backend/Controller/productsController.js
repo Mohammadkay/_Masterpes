@@ -123,24 +123,21 @@ exports.deleteProduct = (req, res) => {
         });
 };
 
-exports.countProducts= async (req, res) => {
-    const productCount = await Product.countDocuments((count) => count);
+exports.countProducts = async (req, res) => {
+    try {
+        const categories = await Category.find(); // Fetch all categories
+        const productCountByCategory = [];
 
-    if (!productCount) {
-        res.status(500).json({ success: false });
+        for (const category of categories) {
+            const count = await Product.countDocuments({ category: category._id });
+            productCountByCategory.push(count);
+        }
+
+        res.status(200).json(productCountByCategory);
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
     }
-    res.send({
-        productCount: productCount,
-    });
 }
 
-exports.countFeaturedProduct= async (req, res) => {
-    const count = req.params.count ? req.params.count : 0;
-    const products = await Product.find({ isFeatured: true }).limit(+count);
 
-    if (!products) {
-        res.status(500).json({ success: false });
-    }
-    res.send(products);
-}
 
