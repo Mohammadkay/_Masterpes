@@ -110,12 +110,9 @@ export default function TableSort() {
     //Get all Data 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/categories/', {
-                headers: {
-                    Authorization: 'Bearer ' + adminInfo.token,
-                },
-            });
+            const response = await axios.get('http://localhost:8000/api/categories/');
             setData(response.data);
+            console.log(response)
 
         } catch (error) {
             console.error('Error fetching data:', error);

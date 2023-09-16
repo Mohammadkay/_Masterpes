@@ -5,7 +5,7 @@ function Delete({ deleteId, adminInfo, fetchData }) {
 
     const deleteAdmin = async () => {
         try {
-            const response = await axios.delete(`http://localhost:9000/api/users/${deleteId}`, {
+            const response = await axios.delete(`http://localhost:8000/api/users/${deleteId}`, {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },

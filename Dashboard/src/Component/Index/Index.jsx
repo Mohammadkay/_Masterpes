@@ -16,13 +16,13 @@ import {
     Page404,
     Page500,
     Page401,
-    Cars,
-    Motorcycles,
+  
     Product,
     Category,
 } from '../index'
 import AuthLogin from '../Auth'
 import { AdminInfoContext } from '../../context/AdminInfoProvider'
+import AddProduct from '../Shops/Product/AddProduct';
 
 function Index() {
     const { adminInfo, setAdminInfo } = useContext(AdminInfoContext)
@@ -68,6 +68,9 @@ function Index() {
                                     <Route path='/resetPassword' element={<ResetPassword />} />
                                     <Route path='/TableUsers' element={<TableUsers />} />
                                     <Route path='/TableAdmin' element={<TableAdmin />} />
+
+                                    {/* sasad */}
+                                    <Route path='/AddProduct' element={<AddProduct />} />
 
 
                                     {/* Authentication */}

@@ -19,7 +19,7 @@ function ResetPassword() {
 
         if (isEmailValid && isPasswordValid) {
             try {
-                const response = await axios.put('http://localhost:9000/api/admin/password/rest-password', {
+                const response = await axios.put('http://localhost:8000/api/admin/password/rest-password', {
                     email: email,
                     password: password
                 }, {

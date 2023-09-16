@@ -8,6 +8,8 @@ exports.getCategories = async (req, res) => {
     }
     res.status(200).send(categoryList);
 };
+
+//
 exports.getCategory = async (req, res) => {
     const category = await Category.findById(req.params.id);
 
@@ -18,19 +20,19 @@ exports.getCategory = async (req, res) => {
     }
     res.status(200).send(category);
 };
+
 exports.addCategory = async (req, res) => {
-    let category = new Category({
-        name: req.body.name,
-        icon: req.body.icon,
-        color: req.body.color,
-    });
-    category = await category.save();
+  try{
+    cat=await Category.create(req.body);
+    res.status(201).json({
+        message:"success",
+        data:cat
+    })
+  }catch(err){
 
-    if (!category)
-        return res.status(400).send('the category cannot be created!');
-
-    res.send(category);
+  }
 };
+
 exports.editCategory = async (req, res) => {
     const category = await Category.findByIdAndUpdate(
         req.params.id,
@@ -47,6 +49,7 @@ exports.editCategory = async (req, res) => {
 
     res.send(category);
 };
+
 exports.deleteCategory = (req, res) => {
     Category.findByIdAndRemove(req.params.id)
         .then((category) => {

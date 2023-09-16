@@ -19,7 +19,7 @@ function Edit({ editId, adminInfo, fetchData }) {
         formData.append('position', position);
 
         try {
-            const response = await axios.put(`http://localhost:9000/api/admin/${adminId}`, { username, position }, {
+            const response = await axios.put(`http://localhost:8000/api/admin/${adminId}`, { username, position }, {
                 headers: {
                     Authorization: "Bearer " + token,
                 },

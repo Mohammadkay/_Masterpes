@@ -110,7 +110,7 @@ export default function TableSort() {
     //Get all Data 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/products', {
+            const response = await axios.get('http://localhost:8000/api/products', {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },
@@ -143,7 +143,9 @@ export default function TableSort() {
             <td>{row.brand}</td>
             <td>{row.name}</td>
             <td>{row.price}</td>
-            <td><img src={row.image.url} alt='image car rental' width='70' height='70' /></td>
+            <td>
+            <img src={row.image} alt={row.name} width='70' height='70' />
+        </td>
             <td>{row.description}</td>
             <td>{row.richDescription}</td>
             <td>
@@ -167,7 +169,7 @@ export default function TableSort() {
                     value={search}
                     onChange={handleSearchChange}
                 />
-                <Table horizontalSpacing="md" verticalSpacing="xs" w={1300} sx={{ tableLayout: 'scroll' }}>
+                <Table horizontalSpacing="md" verticalSpacing="xs" w={1000} sx={{ tableLayout: 'scroll' }}>
                     <thead>
                         <tr>
                             <th>
@@ -186,9 +188,7 @@ export default function TableSort() {
                                 image
                             </th>
 
-                            <th>
-                                summary
-                            </th>
+                        
 
                            
 

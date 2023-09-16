@@ -31,30 +31,14 @@ exports.getProduct = async (req, res) => {
 };
 
 exports.addProducts = async (req, res) => {
-    const category = await Category.findById(req.body.category);
-    if (!category) return res.status(400).send('Invalid Category');
+try{
+    product=await Product.create(req.body);
+    res.status(200).json({status:"success",
+    data:product
+})
+}catch(err){
 
-    const file = req.file;
-    if (!file) return res.status(400).send('No image in the request');
-
-    const fileName = file.filename;
-    const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
-    let product = new Product({
-        name: req.body.name,
-        description: req.body.description,
-        richDescription: req.body.richDescription,
-        image: req.body.image, // "http://localhost:3000/public/upload/image-2323232"
-        brand: req.body.brand,
-        price: req.body.price,
-        category: req.body.category,
-     
-    });
-
-    product = await product.save();
-
-    if (!product) return res.status(500).send('The product cannot be created');
-
-    res.send(product);
+}
 };
 
 exports.editProduct = async (req, res) => {
@@ -138,6 +122,18 @@ exports.countProducts = async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 }
+exports.getByCategory = async (req, res) => {
+    try {
+        const catId = req.params.id;
+        const products = await Product.find({ 'category': catId }); 
 
+        res.status(200).json(
+            products
+        );
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({ success: false, message: 'Products not found!' });
+    }
+};
 
 

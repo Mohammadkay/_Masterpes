@@ -36,7 +36,7 @@ function AuthLogin() {
         }
 
         try {
-            const response = await axios.post('http://localhost:9000/api/authAdmin/login', { email, password });
+            const response = await axios.post('http://localhost:8000/api/authAdmin/login', { email, password });
             localStorage.setItem('adminInfo', JSON.stringify(response.data));
 
             setAdminInfo(response.data)

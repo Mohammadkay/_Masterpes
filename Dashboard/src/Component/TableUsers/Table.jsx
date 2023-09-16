@@ -113,7 +113,7 @@ export default function TableSort() {
     //Get all Data 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/users', {
+            const response = await axios.get('http://localhost:8000/api/users', {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },

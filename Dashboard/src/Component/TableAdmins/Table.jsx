@@ -115,7 +115,7 @@ export default function TableSort() {
     //Get all Data 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/admin', {
+            const response = await axios.get('http://localhost:8000/api/admin', {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },
@@ -130,7 +130,7 @@ export default function TableSort() {
     const activeAdmin = async (adminId) => {
         console.log()
         try {
-            const response = await axios.put(`http://localhost:9000/api/admin/active/${adminId}`, {}, {
+            const response = await axios.put(`http://localhost:8000/api/admin/active/${adminId}`, {}, {
                 headers: {
                     Authorization: 'Bearer ' + adminInfo.token,
                 },

@@ -11,12 +11,8 @@ const {
     editProduct,
     deleteProduct,
     countProducts,
-    countFeaturedProduct,
+    getByCategory
 } = require(`../Controller/productsController`);
-
-
-
-
 
 
 router.get(`/`, getAllProducts);
@@ -30,6 +26,8 @@ router.put('/:id', editProduct);
 router.delete('/:id', deleteProduct);
 
 router.get(`/get/count`, countProducts);
+
+router.get('/byCategory/:id',getByCategory)
 
 
 

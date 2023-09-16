@@ -74,7 +74,7 @@ function CreateAccount() {
 
     const fetchCreateAccount = async () => {
         try {
-            const response = await axios.post('http://localhost:9000/api/authAdmin/createAccount', fields);
+            const response = await axios.post('http://localhost:8000/api/authAdmin/createAccount', fields);
             toast.success('The account has been added', {
                 position: "top-right",
                 autoClose: 5000,
