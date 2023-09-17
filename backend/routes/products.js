@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/product');
-const Category = require('../models/category');
-const mongoose = require('mongoose');
-const multer = require('multer');
+
 const {
     getAllProducts,
     getProduct,
@@ -13,13 +10,13 @@ const {
     countProducts,
     getByCategory
 } = require(`../Controller/productsController`);
-
+const photoUpload = require('../middlewares/photoupload');
 
 router.get(`/`, getAllProducts);
 
 router.get(`/:id`, getProduct);
 
-router.post(`/`, addProducts);
+router.post(`/`, photoUpload.single('image'),addProducts);
 
 router.put('/:id', editProduct);
 

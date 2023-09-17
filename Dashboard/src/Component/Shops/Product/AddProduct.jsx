@@ -1,19 +1,20 @@
 import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Link,  useNavigate } from 'react-router-dom'
-
+import {AdminInfoContext} from '../../../context/AdminInfoProvider'
 export default function AddProduct() {
     const [data,setData]=useState([])
+    const [image,setImage]=useState(null)
     const [error,setError]=useState()
     const navigate = useNavigate();
 
     const name =useRef()
     const brand =useRef()
-    const image =useRef()
     const price =useRef()
     const description =useRef()
     const CatId =useRef()
-      
+    const { adminInfo, setAdminInfo, PAGE_SHOW } = useContext(AdminInfoContext)
+
     useEffect(()=>{
         fetchData()
     },[])
@@ -27,46 +28,39 @@ export default function AddProduct() {
             console.error('Error fetching data:', error);
         }
     };
+
     const addProduct = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-        setError("")
-        if(name.current.value !=""|| brand.current.value!==""|| image.current.value!=""||
-            price.current.value!=""||description.current.value!=""
-        ){
-        const obj = {
-          name: name.current.value,
-          brand: brand.current.value,
-          image: image.current.value,
-          price: price.current.value,
-          description: description.current.value,
-          category: CatId.current.value,
-          richDescription:""
-
-          // ... other form fields
+        e.preventDefault();
+        setError("");
+      
+        if (name.current.value !== "" || brand.current.value !== "" || price.current.value !== "" || description.current.value !== "") {
+          // Create a FormData object
+          const formData = new FormData();
+          formData.append("name", name.current.value);
+          formData.append("brand", brand.current.value);
+          formData.append("price", price.current.value);
+          formData.append("description", description.current.value);
+          formData.append("category", CatId.current.value);
+          formData.append("image", image); // Append the file
+      
+          try {
+            await axios.post(`http://localhost:8000/api/products`, formData, {
+              headers: {
+                "Content-Type": "multipart/form-data", // Set content type to multipart/form-data
+              },
+            });
+            console.log(formData);
+            navigate("../Product");
+          } catch (err) {
+            console.log(err);
+            setError("Something went wrong. Please try again.");
+          }
+        } else {
+          setError("Please fill in all fields.");
         }
-        try{
-           const res=await axios.post('http://localhost:8000/api/products',obj)
-           console.log(res)
-           navigate("../Product");
-           
-        }catch(err){
-            console.log(err)
-            setError("something going wrong try again ")
-            
-        }
-    }else{
-        setError("please Fill ALL feild")
-    }
-    name.current.value=""
-    brand.current.value=""
-    image.current.value=""
-    price.current.value=""
-    description.current.value=""
-    CatId.current.value=""
       };
-
-
-
+/********************* */
+  
   return (
     <div>
         <div className="container-fluid px-4">
@@ -115,7 +109,7 @@ export default function AddProduct() {
                 <div className="row p-3">
                         <div className="col">
                          <label htmlFor="">Product Name</label>
-                        <input type="file" className="form-control"  ref={image}/>
+                        <input type="file" className="form-control"  onChange={(e)=>setImage(e.target.files[0])}/>
                     </div>
                     <div className="col pl-3">
                           <label htmlFor="" >Description</label>

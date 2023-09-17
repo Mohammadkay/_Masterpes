@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcryptjs')
-const { User, ValidateRegisterUser, ValidateLoginUser } = require('../../models/user')
+const { User, ValidateRegisterUser, ValidateLoginUser } = require('../../models/User')
 
 
 /**-------------------------------------------------------------

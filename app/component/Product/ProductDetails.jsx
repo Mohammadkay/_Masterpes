@@ -64,8 +64,8 @@ export default function ProductDetails () {
   };
 
   return (
-    <ScrollView  style={styles.container}>
-      <Image style={styles.image} source={product.image}/>
+    <View  style={styles.container}>
+      <Image style={styles.image} source={{uri:product.image.url}}/>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.description}>{product.description}</Text>
       <Text style={styles.price}>Price: ${product.price}</Text>
@@ -80,7 +80,7 @@ export default function ProductDetails () {
           />
         </View>
       </Modal>
-    </ScrollView>
+    </View>
   );
 }
     

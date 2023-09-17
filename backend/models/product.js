@@ -9,20 +9,19 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    richDescription: {
-        type: String,
-        default: '',
-    },
     image: {
-      type: String,
-      default:''
+        type: Object,
+        default: {
+            url: "",
+            publicId: null
+        }
     },
      brand: {
         type: String,
         default: '',
     },
     price: {
-        type: Number,
+        type: String,
         default: 0,
     },
     category: {

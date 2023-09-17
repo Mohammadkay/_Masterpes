@@ -1,4 +1,4 @@
-import { useState, useContext, } from 'react';
+import { useState, useContext, useEffect, } from 'react';
 import { View, TextInput, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { UserInfoContext } from '../../context/UserInfo';
@@ -12,9 +12,12 @@ export default function EditProfile() {
     const { userInfo, setUserInfo, fetchUserInfo } = useContext(UserInfoContext);
     const navigation = useNavigation();
 
-
+    useEffect(()=>{
+        console.log(userInfo.token)
+    })
     const handleEdit = async () => {
         try {
+            console.log(userInfo._id)
             const response = await axios.put(`http://10.0.2.2:8000/api/users/${userInfo._id}`, {
                 fullName,
                 bio,
@@ -104,5 +107,3 @@ const styles = {
         fontSize: 18
     },
 }
-
-

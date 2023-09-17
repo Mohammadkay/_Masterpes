@@ -1,7 +1,9 @@
 const Product = require('../models/product');
 const Category = require('../models/category');
 const mongoose = require('mongoose');
-const multer = require('multer');
+const fs = require('fs')
+const path = require('path')
+const { cloudinaryUploadImage, cloudinaryRemoveImage } = require('../utils/cloudinary')
 
 
 
@@ -32,12 +34,31 @@ exports.getProduct = async (req, res) => {
 
 exports.addProducts = async (req, res) => {
 try{
-    product=await Product.create(req.body);
-    res.status(200).json({status:"success",
-    data:product
-})
-}catch(err){
+    console.log(req.file.filename)
+    console.log("dsasdadsasa")
+    const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    console.log(req.body)
+    const result = await cloudinaryUploadImage(imagePath)
 
+    const product = new Product({
+        name: req.body.name,
+        description: req.body.description,
+        image: {
+            url: result.secure_url,
+            publicId: result.public_id
+        },
+        brand: req.body.brand,
+        price: req.body.price,
+        category: req.body.category,
+    })
+    await Product.create(product)
+  fs.unlinkSync(imagePath)
+    res.status(201).json({ message: 'Post added successfully' })
+}catch(err){
+res.status(400).json({
+    message:"fail",
+    error: err.message
+})
 }
 };
 

@@ -1,4 +1,4 @@
-const cloudinary = require("Cloudinary")
+const cloudinary = require("cloudinary")
 
 
 cloudinary.config({
