@@ -28,59 +28,24 @@ export default function Home({ navigation }) {
         >
             <Image
                 style={styles.imageCard}
-                source={"../../assets/images/Internal.png"}
+                source={{uri:item.image.url}}
             />
             <Text style={styles.card}>{item.name}</Text>
         </TouchableOpacity>
     );
  
-    //     {
-    //         id: '1',
-    //         title: 'Accidents',
-    //         image: require('../../assets/images/Accidents.png'),
-    //     },
-    //     {
-    //         id: '2',
-    //         title: 'Maintenance request',
-    //         image: require('../../assets/images/MaintenanceRequest.png'),
-    //     },
-    //     {
-    //         id: '3',
-    //         title: 'location of the pieces',
-    //         image: require('../../assets/images/locationPieces.png'),
-
-    //     },
-    //     {
-    //         id: '4',
-    //         title: 'Before buying',
-    //         image: require('../../assets/images/BeforeBuying.png'),
-
-    //     },
-    //     {
-    //         id: '5',
-    //         title: 'Rental service',
-    //         image: require('../../assets/images/RentalService.png'),
-
-    //     },
-
-    // ];
-
-    // const renderItemServices = ({ item }) => (
-    //     <TouchableOpacity style={styles.item}>
-    //         <Image
-    //             style={styles.imageCard}
-    //             source={item.image}
-    //         />
-    //         <Text style={styles.card}>{item.title}</Text>
-    //     </TouchableOpacity>
-    // );
+ 
 
     return (
         <ScrollView style={styles.container}>
            
             <View>
-                <Text style={styles.title}>Products</Text>
-
+            <View style={styles.img_container}>
+                 <Image
+               style={styles.imageHead}
+                    source={require('../../assets/images/logoLarge.png')}
+                />
+</View>
                <FlatList
                 data={products}
                 renderItem={renderItemProduct}
@@ -90,6 +55,7 @@ export default function Home({ navigation }) {
                  contentContainerStyle={styles.flatlistContent}
 />  
             </View>
+           
         </ScrollView>
     );
 }
@@ -99,6 +65,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
     },
+
     flatlistContent: {
         paddingHorizontal: 16,
         paddingLeft: 3
@@ -121,9 +88,17 @@ const styles = StyleSheet.create({
         elevation: 10,
         alignItems: 'center',
     },
+    img_container:{
+        textAlign:"center"
+    },
     imageCard: {
         width: 70,
         height: 60,
+    },
+    imageHead:{
+        width: 250,
+        height: 150,
+        marginLeft:50
     },
     title: {
         fontSize: 26,

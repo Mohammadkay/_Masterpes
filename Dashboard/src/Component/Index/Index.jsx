@@ -23,6 +23,7 @@ import {
 import AuthLogin from '../Auth'
 import { AdminInfoContext } from '../../context/AdminInfoProvider'
 import AddProduct from '../Shops/Product/AddProduct';
+import AddCategory from '../Shops/Category/AddCategory';
 
 function Index() {
     const { adminInfo, setAdminInfo } = useContext(AdminInfoContext)
@@ -71,6 +72,7 @@ function Index() {
 
                                     {/* sasad */}
                                     <Route path='/AddProduct' element={<AddProduct />} />
+                                    <Route path='/AddCategory' element={<AddCategory />} />
 
 
                                     {/* Authentication */}

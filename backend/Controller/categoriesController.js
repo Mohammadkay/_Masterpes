@@ -1,4 +1,8 @@
 const Category = require('../models/category');
+const mongoose = require('mongoose');
+const fs = require('fs')
+const path = require('path')
+const { cloudinaryUploadImage, cloudinaryRemoveImage } = require('../utils/cloudinary')
 
 exports.getCategories = async (req, res) => {
     const categoryList = await Category.find();
@@ -9,7 +13,6 @@ exports.getCategories = async (req, res) => {
     res.status(200).send(categoryList);
 };
 
-//
 exports.getCategory = async (req, res) => {
     const category = await Category.findById(req.params.id);
 
@@ -19,35 +22,6 @@ exports.getCategory = async (req, res) => {
         });
     }
     res.status(200).send(category);
-};
-
-exports.addCategory = async (req, res) => {
-  try{
-    cat=await Category.create(req.body);
-    res.status(201).json({
-        message:"success",
-        data:cat
-    })
-  }catch(err){
-
-  }
-};
-
-exports.editCategory = async (req, res) => {
-    const category = await Category.findByIdAndUpdate(
-        req.params.id,
-        {
-            name: req.body.name,
-            icon: req.body.icon || category.icon,
-            color: req.body.color,
-        },
-        { new: true }
-    );
-
-    if (!category)
-        return res.status(400).send('the category cannot be created!');
-
-    res.send(category);
 };
 
 exports.deleteCategory = (req, res) => {
@@ -68,3 +42,31 @@ exports.deleteCategory = (req, res) => {
             return res.status(500).json({ success: false, error: err });
         });
 };
+
+exports.addCategory = async (req, res) => {
+    console.log(req.body)
+
+    try{
+        const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+        const result = await cloudinaryUploadImage(imagePath)
+        
+        const cat = new Category({
+            name: req.body.name,
+            
+            image: {
+                url: result.secure_url,
+                publicId: result.public_id
+            },
+        })
+        console.log(req.body)
+        console.log(cat)
+        await Category.create(cat)
+      fs.unlinkSync(imagePath)
+        res.status(201).json({ message: 'Post added successfully' })
+    }catch(err){
+    res.status(400).json({
+        message:"fail",
+        error: err.message
+    })
+    }
+    };

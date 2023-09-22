@@ -14,6 +14,7 @@ export default function Shop() {
             try{
                 const response=await axios.get('http://10.0.2.2:8000/api/categories');
                 setCategory(response.data)
+                console.log(response.data)
             }
             catch(err){
                 console.log(err)
@@ -27,8 +28,7 @@ export default function Shop() {
             >
             <Image
                 style={styles.imageCard}
-                source={item.image}
-            />
+                source={{uri:item.image.url}}            />
             <Text style={styles.card}>{item.name}</Text>
         </TouchableOpacity >
     );
@@ -36,7 +36,12 @@ export default function Shop() {
 
     return (
         <View style={styles.container}>
-                <Text style={styles.title}>Our Collection</Text>
+                     <View style={styles.img_container}>
+                 <Image
+               style={styles.imageHead}
+                    source={require('../../assets/images/logoLarge.png')}
+                />
+</View>
             <FlatList
                 data={category}
                 renderItem={renderItemshop}
@@ -58,6 +63,18 @@ const styles = StyleSheet.create({
         alignContent:"center",
         justifyContent:"center",
         paddingTop:20
+    },
+    imageHead:{
+        width: 250,
+        height: 150,
+ 
+    },
+    img_container:{
+        textAlign:"center"
+    },
+    imageCard: {
+        width: 90,
+        height: 70,
     },
     flatlistContent: {
         alignItems: 'center',
@@ -82,10 +99,7 @@ const styles = StyleSheet.create({
         elevation: 10,
         alignItems: 'center',
     },
-    imageCard: {
-        width: 90,
-        height: 60,
-    },
+ 
     card: {
         fontSize: 15,
         padding: 10,

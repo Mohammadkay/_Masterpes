@@ -8,7 +8,7 @@ function Sidenav() {
                     <div className="nav">
                         <div className="sb-sidenav-menu-heading">control Board</div>
                         <Link to='/' className="nav-link"><div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div> Dashboard</Link>
-                        <Link to='/ServiceProviders' className="nav-link"><div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div> Service Providers</Link>
+                      
 
                         {/* <!-- Start Users tables  --> */}
                         <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers"
@@ -97,10 +97,8 @@ function Sidenav() {
                             <nav className="sb-sidenav-menu-nested nav">
 
                                             <Link to='/Category' className="nav-link">Category</Link>
+                                            <Link to='/AddCategory' className="nav-link">Add Category</Link>
                                 
-                              
-                          
-
                             </nav>
                         </div>
                             {/*  */}

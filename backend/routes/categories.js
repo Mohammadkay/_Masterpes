@@ -5,10 +5,11 @@ const {
     getCategories,
     getCategory,
     addCategory,
-    editCategory,
+    
     deleteCategory,
 } = require('../Controller/categoriesController');
-router.route(`/`).get(getCategories).post(addCategory);
-router.route(`/:id`).get(getCategory).put(editCategory).delete(deleteCategory);
+const photoUpload = require('../middlewares/photoupload');
+router.route(`/`).get(getCategories).post(photoUpload.single('image'),addCategory);
+router.route(`/:id`).get(getCategory).delete(deleteCategory);
 
 module.exports = router;

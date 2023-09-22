@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { verifyToken, verifyTokenAndOnlyUser } = require('../../middlewares/verifyToken')
+const { verifyToken, verifyTokenAndOnlyUser ,verifyTokenAdmin} = require('../../middlewares/verifyToken')
 const validateObjectld = require('../../middlewares/validateObjectld')
 const { getAllUsertCtrl, getCountUsertCtrl, changePasswordCtrl, updateUserCtrl, deleteUsertCtrl } = require('../../Controller/user/userController')
 const photoUpload = require('../../middlewares/photoupload')
@@ -23,7 +23,7 @@ router.route('/change-password/:id')
 
 router.route('/:id')
     .put(verifyToken, validateObjectld, updateUserCtrl)
-    .delete(verifyTokenAndOnlyUser, validateObjectld, deleteUsertCtrl)
+    .delete(verifyTokenAdmin, validateObjectld, deleteUsertCtrl)
 
 
 

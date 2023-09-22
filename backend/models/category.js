@@ -5,12 +5,14 @@ const categorySchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    icon: {
-        type: String,
+    image: {
+        type: Object,
+        default: {
+            url: "",
+            publicId: null
+        }
     },
-    color: {
-        type: String,
-    },
+   
 });
 
 const Category = mongoose.model('Category', categorySchema);

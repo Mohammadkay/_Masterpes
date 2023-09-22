@@ -27,7 +27,7 @@ export default function FilterProduct() {
         >
             <Image
                 style={styles.imageCard}
-                source={"../../assets/images/Internal.png"}
+                source={{uri:item.image.url}} 
             />
             <Text style={styles.card}>{item.name}</Text>
         </TouchableOpacity>
@@ -38,7 +38,7 @@ export default function FilterProduct() {
         <View style={styles.container}>
            
             <View>
-                <Text style={styles.title}>Development  Car</Text>
+                
 
                <FlatList
                 data={products}

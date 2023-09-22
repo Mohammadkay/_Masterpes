@@ -42,17 +42,6 @@ export default function User() {
             </View>
 
             <View style={styles.contanierList}>
-                <TouchableOpacity style={styles.list}
-                    onPress={() => navigation.navigate('MyPost')}>
-                    <MyPostIcIconon name="post" size={22} />
-                    <Text style={styles.title}>My Posts</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.list}
-                    onPress={() => navigation.navigate('NewPost')}>
-                    <NewPostIcon name="edit" size={22} />
-                    <Text style={styles.title}>New Post</Text>
-                </TouchableOpacity>
 
                 <TouchableOpacity style={styles.list}
                     onPress={() => navigation.navigate('Settings')}>
