@@ -1,6 +1,8 @@
 import { useRoute, useNavigation } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
-import { View, Text, Button, Image, StyleSheet, Alert } from 'react-native';
+import { View, Text, Button, Image, StyleSheet, Alert,TouchableOpacity } from 'react-native';
+
+
 import Modal from 'react-native-modal';
 import { UserInfoContext } from '../../context/UserInfo';
 import axios from 'axios';
@@ -68,9 +70,13 @@ export default function ProductDetails () {
       <Image style={styles.image} source={{uri:product.image.url}}/>
       <Text style={styles.title}>{product.name}</Text>
       <Text style={styles.description}>{product.description}</Text>
-      <Text style={styles.price}>Price: ${product.price}</Text>
-      <Button title="Buy Now" onPress={handleBuyNow} />
-
+      <Text style={styles.price}>Price: {product.price} JD</Text>
+      <TouchableOpacity
+  style={styles.customButton}
+  onPress={handleBuyNow}
+>
+  <Text style={{ color: 'white' ,textAlign:"center" }}>Buy Now</Text>
+</TouchableOpacity>
       <Modal isVisible={isThankYouVisible}>
         <View style={styles.modalContainer}>
           <Text style={styles.modalText}>Thank You for Your Purchase!</Text>
@@ -103,6 +109,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
+    padding:5,
     marginVertical: 16,
   },
   price: {
@@ -115,5 +122,12 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
+  },
+  customButton: {
+    backgroundColor: "#BD9851", // Set the background color here
+    borderRadius: 5, // You can add more styles as needed
+    paddingVertical: 10,
+   textAlign:"center",
+    width:150,
   },
 });

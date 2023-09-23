@@ -76,7 +76,7 @@ function Sidenav() {
                              
                         {/* <!-- Start tables Shops  --> */}
                         <a className="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseShops" aria-expanded="false" aria-controls="collapseShops">
+                            data-bs-target="#collapseCategory" aria-expanded="false" aria-controls="collapseCategory">
                             <div className="sb-nav-link-icon"><svg className="svg-inline--fa fa-table" aria-hidden="true"
                                 focusable="false" data-prefix="fas" data-icon="table" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
@@ -92,7 +92,7 @@ function Sidenav() {
                             </svg></div> Category
                             <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </a>
-                        <div className="collapse" id="collapseShops" aria-labelledby="headingOne"
+                        <div className="collapse" id="collapseCategory" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav className="sb-sidenav-menu-nested nav">
 

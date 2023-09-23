@@ -68,7 +68,7 @@ const SignIn = () => {
                     <Button
                         mt="2"
                         colorScheme="indigo"
-                        backgroundColor="#3B5998"
+                        backgroundColor="#BD9851"
                         onPress={handleSignIn}
                     >
                         Sign in

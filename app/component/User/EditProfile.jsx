@@ -100,10 +100,12 @@ const styles = {
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor:"#BD9851"
     },
     buttonText: {
         color: 'white',
         fontWeight: '400',
-        fontSize: 18
+        fontSize: 18,
+        
     },
 }

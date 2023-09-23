@@ -27,7 +27,8 @@ module.exports.registerUserCtr1 = asyncHandler(async (req, res) => {
     user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: hashedPassword
+        password: hashedPassword,
+        phone:req.body.phone,
     })
 
     await user.save()

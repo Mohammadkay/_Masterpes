@@ -12,30 +12,24 @@ export default function About() {
 
             <View style={styles.contanierText}>
                 <Text style={styles.text}>
-                    At <Text style={styles.bold}>CarServ</Text>, we are committed to being your trusted companion on the
-                    road and beyond. With a deep understanding of the diverse needs of
-                    drivers, we have crafted a one-stop destination for all things automotive.
+                     <Text style={styles.bold}>MK Store </Text>one of the chief precious stone adornments
+            producers. Serving more than 5000 clients crosswise over the USA,
+            UK, Latin America, Australia, and Canada.By owning all parts of the
+            store network, including precious stone sourcing, cutting,
+            combination, and gems fabricating.MK Store is resolved to
+            give the most ideal incentive to Jewelers all through the world. We
+            will probably enable the autonomous gem dealer to remain in front of
+            their
                 </Text>
-
-                <Text style={styles.text}>
-                    Whether you're a seasoned car enthusiast, a heavy machinery operator, or
-                    simply in search of quality parts and accessories, we've got you covered.
-                </Text>
-
-                <Text style={styles.text}>
-                    Our mission is to simplify the journey for drivers by offering a comprehensive
-                    range of services and products that enhance your driving experience.
-                </Text>
-
-                <Text style={styles.text}>
-                    From top-notch maintenance supplies to cutting-edge technology solutions,
-                    we are dedicated to ensuring your vehicle operates at its best.
-                </Text>
-
-                <Text style={styles.text}>
-                    <Text style={styles.bold}>CarServ</Text> is not just a store; it's a place where your automotive dreams come to life.
-                    Trust us to keep you on  the road, safely and reliably, every step of the way.
-                </Text>
+{/*     MK Store is one of the chief precious stone adornments
+            producers. Serving more than 5000 clients crosswise over the USA,
+            UK, Latin America, Australia, and Canada.By owning all parts of the
+            store network, including precious stone sourcing, cutting,
+            combination, and gems fabricating.MK Store is resolved to
+            give the most ideal incentive to Jewelers all through the world. We
+            will probably enable the autonomous gem dealer to remain in front of
+            their */}
+               
             </View>
         </ScrollView>
     )
@@ -53,6 +47,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     text: {
+        color:"#BD9851",
         textAlign: 'center',
         fontSize: 20,
         fontWeight: '400',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Center, Box, Heading, VStack, FormControl, Input, Button, Text } from 'native-base';
+import { Center, Box, Heading, VStack, FormControl, Input, Button, Text, ScrollView } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 
@@ -8,6 +8,7 @@ const SignUp = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSignUp = async () => {
@@ -20,16 +21,19 @@ const SignUp = () => {
             const response = await axios.post('http://10.0.2.2:8000/api/auth/register', {
                 username: username,
                 email: email,
-                password: password
+                password: password,
+                phone:phone
             });
 
-            navigation.navigate('Home');
+            navigation.navigate('SignIn');
         } catch (error) {
+            console.log(error);
             setErrorMessage('user already exist');
         }
     };
 
     return (
+        <ScrollView>
         <Center flex={1} w="100%">
             <Box safeArea p="2" w="90%" maxW="290" py="8">
                 <Heading size="lg" color="coolGray.800" _dark={{
@@ -55,8 +59,12 @@ const SignUp = () => {
                         <FormControl.Label>Password</FormControl.Label>
                         <Input onChangeText={text => setPassword(text)} value={password} secureTextEntry />
                     </FormControl>
+                    <FormControl>
+                        <FormControl.Label>Phone Number</FormControl.Label>
+                        <Input onChangeText={text => setPhone(text)} value={phone}  />
+                    </FormControl>
                     <Button mt="2" colorScheme="indigo"
-                        backgroundColor="#3B5998"
+                        backgroundColor="#BD9851"
                         onPress={handleSignUp}>
                         Sign up
                     </Button>
@@ -68,6 +76,7 @@ const SignUp = () => {
                 </VStack>
             </Box>
         </Center>
+        </ScrollView>
     );
 };
 

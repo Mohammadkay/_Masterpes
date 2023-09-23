@@ -68,6 +68,7 @@ function ValidateRegisterUser(obj) {
         username: Joi.string().min(2).max(100).trim().required(),
         email: Joi.string().min(5).max(100).trim().required().email(),
         password: Joi.string().min(8).trim().required(),
+        phone: Joi.string().min(8).trim().required(),
     })
     return Schema.validate(obj)
 }

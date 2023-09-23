@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     imageProfile: {
         width: 200,
         height: 200,
-        marginTop: -50
+        marginTop: 5,
     },
     name: {
         fontSize: 26,
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 16,
-        fontWeight: '500'
+        fontWeight: '500',
+        color:"#BD9851"
     }
 });
 

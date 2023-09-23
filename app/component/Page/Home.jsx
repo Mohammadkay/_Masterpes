@@ -39,14 +39,14 @@ export default function Home({ navigation }) {
     return (
         <ScrollView style={styles.container}>
            
-            <View>
+            <View style={styles.cardcontainer}>
             <View style={styles.img_container}>
                  <Image
                style={styles.imageHead}
                     source={require('../../assets/images/logoLarge.png')}
                 />
-</View>
-               <FlatList
+</View >
+               <FlatList 
                 data={products}
                 renderItem={renderItemProduct}
                  keyExtractor={(item) => item.id}
@@ -64,6 +64,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+    },
+    cardcontainer:{
+        paddingBottom:30
     },
 
     flatlistContent: {

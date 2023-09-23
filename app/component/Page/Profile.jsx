@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     },
     list: {
         padding: 20,
+       
     },
     item: {
         flexDirection: 'row',
@@ -124,6 +125,8 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.8,
         borderBottomColor: '#a0a0a0',
         backgroundColor: '#f2f2f2',
+        color:"#BD9851"
+
     },
     imageCard: {
         width: 10,
@@ -131,9 +134,12 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     card: {
+        
         fontSize: 20,
         textAlign: 'center',
-        fontWeight: '500'
+        fontWeight: '500',
+        color:"#BD9851"
+
     },
 });
 

@@ -43,12 +43,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 22,
         fontWeight: '700',
+        color:"#BD9851"
     },
     subTitle: {
         fontSize: 18,
         fontWeight: '500',
         borderBottomWidth: 1,
-        padding: 20
+        padding: 20,
+        color:"#BD9851"
     }
 });
 
